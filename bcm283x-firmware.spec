@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date	20151212
-%global commit_long	36c56b7cab316e657bc00392fd98ceded38a17ae
+%global snap_date	20151223
+%global commit_long	1efc1ece0d1e282b1cf4f371d2f7c4098113c098
 %global commit_short	%(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -40,6 +40,9 @@ install -p overlays/README %{buildroot}/boot/overlays
 
 
 %changelog
+* Wed Dec 23 2015 Vaughan <devel at agrez dot net> - 20151223-1.1efc1ec
+- Sync to latest git commit: 1efc1ece0d1e282b1cf4f371d2f7c4098113c098
+
 * Sat Dec 12 2015 Vaughan <devel at agrez dot net> - 20151212-1.36c56b7
 - Sync to latest git commit: 36c56b7cab316e657bc00392fd98ceded38a17ae
 
