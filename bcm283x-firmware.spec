@@ -40,7 +40,7 @@ install -p boot/overlays/README %{buildroot}/boot/overlays
 
 
 %changelog
-* Fri Mar 05 2016 mrjoshuap <jpreston at redhat dot com> - 20160305-1.845eb06
+* Mon Mar 07 2016 mrjoshuap <jpreston at redhat dot com> - 20160305-1.845eb06
 - Sync to latest git commit: 845eb064cb52af00f2ea33c0c9c54136f664a3e4
 
 * Fri Feb 05 2016 Vaughan <devel at agrez dot net> - 20160205-1.cb2ffaa
