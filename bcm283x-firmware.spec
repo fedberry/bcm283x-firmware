@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date	20160205
-%global commit_long	cb2ffaa5503ac53039d40715965480dd66f0aa20
+%global snap_date	20160305
+%global commit_long	845eb064cb52af00f2ea33c0c9c54136f664a3e4
 %global commit_short	%(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -14,32 +14,35 @@ Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
-URL:           https://github.com/raspberrypi/
-Source0:       %{name}-%snap_date-%{commit_short}.tar.xz
+URL:           https://github.com/raspberrypi/firmware
+Source0:       https://github.com/raspberrypi/firmware/archive/%{commit_long}.tar.gz#/firmware-${commit_long}.tar.gz
 ExclusiveArch: %{arm}
 
 %description
 GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in the Raspberry Pi.
 
 %prep
-%setup -q -n %{name}-%{commit_short} -c %{name}-%{commit_short}
+%setup -q -n firmware-%{commit_long}
 
 %build
 
 %install
 mkdir -p %{buildroot}/boot
 mkdir -p %{buildroot}/boot/overlays
-install -p *bin %{buildroot}/boot
-install -p *dat %{buildroot}/boot
-install -p *elf %{buildroot}/boot
-install -p overlays/README %{buildroot}/boot/overlays
+install -p boot/*bin %{buildroot}/boot
+install -p boot/*dat %{buildroot}/boot
+install -p boot/*elf %{buildroot}/boot
+install -p boot/overlays/README %{buildroot}/boot/overlays
 
 %files
-%license LICENCE.broadcom
+%license boot/LICENCE.broadcom
 /boot/*
 
 
 %changelog
+* Fri Mar 05 2016 mrjoshuap <jpreston at redhat dot com> - 20160305-1.845eb06
+- Sync to latest git commit: 845eb064cb52af00f2ea33c0c9c54136f664a3e4
+
 * Fri Feb 05 2016 Vaughan <devel at agrez dot net> - 20160205-1.cb2ffaa
 - Sync to latest git commit: cb2ffaa5503ac53039d40715965480dd66f0aa20
 
