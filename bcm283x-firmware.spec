@@ -15,27 +15,27 @@ Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
 URL:           https://github.com/raspberrypi/
-Source0:       %{name}-%snap_date-%{commit_short}.tar.xz
+Source0:       https://github.com/raspberrypi/firmware/archive/%{commit_long}.tar.gz#/firmware-${commit_long}.tar.gz
 ExclusiveArch: %{arm}
 
 %description
 GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in the Raspberry Pi.
 
 %prep
-%setup -q -n %{name}-%{commit_short} -c %{name}-%{commit_short}
+%setup -q -n firmware-%{commit_long}
 
 %build
 
 %install
 mkdir -p %{buildroot}/boot
 mkdir -p %{buildroot}/boot/overlays
-install -p *bin %{buildroot}/boot
-install -p *dat %{buildroot}/boot
-install -p *elf %{buildroot}/boot
-install -p overlays/README %{buildroot}/boot/overlays
+install -p boot/*bin %{buildroot}/boot
+install -p boot/*dat %{buildroot}/boot
+install -p boot/*elf %{buildroot}/boot
+install -p boot/overlays/README %{buildroot}/boot/overlays
 
 %files
-%license LICENCE.broadcom
+%license boot/LICENCE.broadcom
 /boot/*
 
 
