@@ -15,7 +15,7 @@ Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
 URL:           https://github.com/raspberrypi/firmware
-Source0:       https://github.com/raspberrypi/firmware/archive/%{commit_long}.tar.gz#/firmware-${commit_long}.tar.gz
+Source0:       https://github.com/raspberrypi/firmware/archive/%{commit_long}.tar.gz#/firmware-%{commit_long}.tar.gz
 ExclusiveArch: %{arm}
 
 %description
