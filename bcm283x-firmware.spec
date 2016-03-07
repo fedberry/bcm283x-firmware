@@ -3,7 +3,7 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date	20160305
+%global snap_date	20160307
 %global commit_long	845eb064cb52af00f2ea33c0c9c54136f664a3e4
 %global commit_short	%(c=%{commit_long}; echo ${c:0:7})
 
@@ -15,31 +15,46 @@ Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
 URL:           https://github.com/raspberrypi/firmware
-Source0:       https://github.com/raspberrypi/firmware/archive/%{commit_long}.tar.gz#/firmware-%{commit_long}.tar.gz
+Source0:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/bootcode.bin
+Source1:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup.dat
+Source2:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup_cd.dat
+Source3:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup_db.dat
+Source4:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup_x.dat
+Source5:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start.elf
+Source6:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_cd.elf
+Source7:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_db.elf
+Source8:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_x.elf
+Source9:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/LICENCE.broadcom
+
 ExclusiveArch: %{arm}
 
 %description
 GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in the Raspberry Pi.
 
 %prep
-%setup -q -n firmware-%{commit_long}
+%setup -c -n %{name}-%{commit_short}
+
+cp -a %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} %{SOURCE6} \
+%{SOURCE7} %{SOURCE8} %{SOURCE9} .
 
 %build
 
+
 %install
 mkdir -p %{buildroot}/boot
-mkdir -p %{buildroot}/boot/overlays
-install -p boot/*bin %{buildroot}/boot
-install -p boot/*dat %{buildroot}/boot
-install -p boot/*elf %{buildroot}/boot
-install -p boot/overlays/README %{buildroot}/boot/overlays
+install -p * %{buildroot}/boot
 
 %files
-%license boot/LICENCE.broadcom
+%license LICENCE.broadcom
 /boot/*
 
 
 %changelog
+* Mon Mar 07 2016 Vaughan <devel at agrez dot net> - 20160307-1.cb2ffaa
+- Don't grab a whole repo snapshot as Source0 is too big (~110 MB).
+- Only add the required firmware files / docs as Sources(0-9)
+- Drop README file (its provided by the kernel)
+
 * Mon Mar 07 2016 mrjoshuap <jpreston at redhat dot com> - 20160305-1.845eb06
 - Sync to latest git commit: 845eb064cb52af00f2ea33c0c9c54136f664a3e4
 
