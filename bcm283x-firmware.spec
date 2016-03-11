@@ -3,15 +3,14 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date	20160307
-%global commit_long	845eb064cb52af00f2ea33c0c9c54136f664a3e4
+%global snap_date	20160311
+%global commit_long	8b4e5482b52e6fb438dddc0d88ba0ba8d44af54b
 %global commit_short	%(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
 Version:       %{snap_date}
 Release:       1.%{commit_short}%{?dist}
 Summary:       Broadcom bcm283x firmware for the Raspberry Pi
-
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
 URL:           https://github.com/raspberrypi/firmware
@@ -50,6 +49,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Fri Mar 11 2016 Vaughan <devel at agrez dot net> - 20160311-1.8b4e548
+- Sync to latest git commit: 8b4e5482b52e6fb438dddc0d88ba0ba8d44af54b
+
 * Mon Mar 07 2016 Vaughan <devel at agrez dot net> - 20160307-1.cb2ffaa
 - Don't grab a whole repo snapshot as Source0 is too big (~110 MB).
 - Only add the required firmware files / docs as Sources(0-9)
