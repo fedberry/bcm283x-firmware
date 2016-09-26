@@ -3,9 +3,9 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date	20160815
-%global commit_long	2cf8fd5ba0b195e16627df6a5b45f47c0edc3a54
-%global commit_short	%(c=%{commit_long}; echo ${c:0:7})
+%global snap_date       20160915
+%global commit_long     83dc067c60fd3f66eda1114eab23e45f57be387d
+%global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
 Version:       %{snap_date}
@@ -24,6 +24,7 @@ Source6:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/s
 Source7:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_db.elf
 Source8:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_x.elf
 Source9:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/LICENCE.broadcom
+Source10:      https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/COPYING.linux
 
 ExclusiveArch: %{arm}
 
@@ -34,7 +35,7 @@ GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in the Raspberry P
 %setup -c -n %{name}-%{commit_short}
 
 cp -a %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} %{SOURCE6} \
-%{SOURCE7} %{SOURCE8} %{SOURCE9} .
+%{SOURCE7} %{SOURCE8} %{SOURCE9} %{SOURCE10} .
 
 %build
 
@@ -44,11 +45,15 @@ mkdir -p %{buildroot}/boot
 install -p * %{buildroot}/boot
 
 %files
-%license LICENCE.broadcom
+%license LICENCE.broadcom COPYING.linux
 /boot/*
 
 
 %changelog
+* Thu Sep 15 2016 Vaughan <devel at agrez dot net> - 20160915-1.83dc067
+- Sync to latest git commit: 83dc067c60fd3f66eda1114eab23e45f57be387d
+- %%license COPYING.linux
+
 * Mon Aug 15 2016 Vaughan <devel at agrez dot net> - 20160815-1.2cf8fd5
 - Sync to latest git commit: 2cf8fd5ba0b195e16627df6a5b45f47c0edc3a54
 
