@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20161012
-%global commit_long     a021d6e70bf5a710c364d21852be4a8dd4dc423a
+%global snap_date       20161218
+%global commit_long     2190ebaaab17d690fb4a6aa767ff7755eaf51b12
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -33,12 +33,9 @@ GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in the Raspberry P
 
 %prep
 %setup -c -n %{name}-%{commit_short}
-
-cp -a %{SOURCE0} %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} %{SOURCE5} %{SOURCE6} \
-%{SOURCE7} %{SOURCE8} %{SOURCE9} %{SOURCE10} .
+cp -a %{sources} .
 
 %build
-
 
 %install
 mkdir -p %{buildroot}/boot
@@ -50,6 +47,10 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Sun Dec 18 2016 Vaughan <devel at agrez dot net> - 20161218-1.2190eba
+- Sync to latest git commit: 2190ebaaab17d690fb4a6aa767ff7755eaf51b12
+- Use %{sources} macro in %%prep
+
 * Wed Oct 12 2016 Vaughan <devel at agrez dot net> - 20161012-1.a021d6e
 - Sync to latest git commit: a021d6e70bf5a710c364d21852be4a8dd4dc423a
 
