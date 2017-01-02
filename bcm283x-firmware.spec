@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20161218
-%global commit_long     2190ebaaab17d690fb4a6aa767ff7755eaf51b12
+%global snap_date       20170102
+%global commit_long     4aac0c5507a7ce8916087060809b3308dae8f731
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -47,6 +47,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Mon Jan 02 2017 Vaughan <devel at agrez dot net> - 20170102-1.4aac0c5
+- Sync to latest git commit: 4aac0c5507a7ce8916087060809b3308dae8f731
+
 * Sun Dec 18 2016 Vaughan <devel at agrez dot net> - 20161218-1.2190eba
 - Sync to latest git commit: 2190ebaaab17d690fb4a6aa767ff7755eaf51b12
 - Use %{sources} macro in %%prep
