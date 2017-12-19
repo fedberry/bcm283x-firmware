@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20171122
-%global commit_long     abfb4be3e1b5836e1ffd96de4ce499406ec9dbb8
+%global snap_date       20171219
+%global commit_long     dadde5e144f4c8d23f37181f785cc7db134b1c1e
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -47,6 +47,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Tue Dec 19 2017 Vaughan <devel at agrez dot net> - 20171219-1.dadde5e
+- Sync to latest git commit: dadde5e144f4c8d23f37181f785cc7db134b1c1e
+
 * Wed Nov 22 2017 Vaughan <devel at agrez dot net> - 20171102-1.abfb4be
 - Sync to latest git commit: abfb4be3e1b5836e1ffd96de4ce499406ec9dbb8
 
