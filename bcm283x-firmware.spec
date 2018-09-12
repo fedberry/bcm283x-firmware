@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20180827
-%global commit_long     200c2f4dd54b2048b5dcb8661ea3f232beb7d81e
+%global snap_date       20180912
+%global commit_long     70c60c5c57d9d639fbd92276f18558ada51b7c53
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -28,18 +28,23 @@ Source10:      https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/C
 
 ExclusiveArch: %{arm}
 
+
 %description
-GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in the Raspberry Pi.
+GPU (VideoCore IV) firmware for the Broadcom bcm283x SoC used in Raspberry Pi's.
+
 
 %prep
 %setup -c -n %{name}-%{commit_short}
 cp -a %{sources} .
 
+
 %build
+
 
 %install
 mkdir -p %{buildroot}/boot
 install -p * %{buildroot}/boot
+
 
 %files
 %license LICENCE.broadcom COPYING.linux
@@ -47,6 +52,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Wed Sep 12 2018 Vaughan <devel at agrez dot net> - 20180912-1.70c60c5
+- Sync to latest git commit: 70c60c5c57d9d639fbd92276f18558ada51b7c53
+
 * Mon Aug 27 2018 Vaughan <devel at agrez dot net> - 20180827-1.200c2f4
 - Sync to latest git commit: 200c2f4dd54b2048b5dcb8661ea3f232beb7d81e
 
