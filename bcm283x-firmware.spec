@@ -14,17 +14,17 @@ Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
 URL:           https://github.com/raspberrypi/firmware
-Source0:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/bootcode.bin
-Source1:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup.dat
-Source2:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup_cd.dat
-Source3:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup_db.dat
-Source4:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/fixup_x.dat
-Source5:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start.elf
-Source6:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_cd.elf
-Source7:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_db.elf
-Source8:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/start_x.elf
-Source9:       https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/LICENCE.broadcom
-Source10:      https://github.com/raspberrypi/firmware/raw/%{commit_long}/boot/COPYING.linux
+Source0:       %{url}/raw/%{commit_long}/boot/bootcode.bin
+Source1:       %{url}/raw/%{commit_long}/boot/fixup.dat
+Source2:       %{url}/raw/%{commit_long}/boot/fixup_cd.dat
+Source3:       %{url}/raw/%{commit_long}/boot/fixup_db.dat
+Source4:       %{url}/raw/%{commit_long}/boot/fixup_x.dat
+Source5:       %{url}/raw/%{commit_long}/boot/start.elf
+Source6:       %{url}/raw/%{commit_long}/boot/start_cd.elf
+Source7:       %{url}/raw/%{commit_long}/boot/start_db.elf
+Source8:       %{url}/raw/%{commit_long}/boot/start_x.elf
+Source9:       %{url}/raw/%{commit_long}/boot/LICENCE.broadcom
+Source10:      %{url}/raw/%{commit_long}/boot/COPYING.linux
 
 ExclusiveArch: %{arm}
 
