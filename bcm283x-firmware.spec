@@ -25,6 +25,15 @@ Source7:       %{url}/raw/%{commit_long}/boot/start_db.elf
 Source8:       %{url}/raw/%{commit_long}/boot/start_x.elf
 Source9:       %{url}/raw/%{commit_long}/boot/LICENCE.broadcom
 Source10:      %{url}/raw/%{commit_long}/boot/COPYING.linux
+# RPi4 firmware
+Source11:       %{url}/raw/%{commit_long}/boot/fixup4.dat
+Source12:       %{url}/raw/%{commit_long}/boot/fixup4cd.dat
+Source13:       %{url}/raw/%{commit_long}/boot/fixup4db.dat
+Source14:       %{url}/raw/%{commit_long}/boot/fixup4x.dat
+Source15:       %{url}/raw/%{commit_long}/boot/start4.elf
+Source16:       %{url}/raw/%{commit_long}/boot/start4cd.elf
+Source17:       %{url}/raw/%{commit_long}/boot/start4db.elf
+Source18:       %{url}/raw/%{commit_long}/boot/start4x.elf
 
 ExclusiveArch: %{arm}
 
