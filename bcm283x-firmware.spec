@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20190703
-%global commit_long     383fcf5be7f1bcf8d63ca8b471ecd9b8da3cef0b
+%global snap_date       20190713
+%global commit_long     f6d9f139037bf421d5d25b1cebe1a67394542b4b
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -61,6 +61,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Sat Jul 13 2019 Vaughan <devel at agrez dot net> - 20190713-1.f6d9f13
+- Sync to latest git commit: f6d9f139037bf421d5d25b1cebe1a67394542b4b
+
 * Wed Jul 03 2019 Vaughan <devel at agrez dot net> - 20190703-1.383fcf5
 - Sync to latest git commit: 383fcf5be7f1bcf8d63ca8b471ecd9b8da3cef0b
 - Add RPi4 firmware
