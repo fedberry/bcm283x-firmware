@@ -35,7 +35,7 @@ Source16:       %{url}/raw/%{commit_long}/boot/start4cd.elf
 Source17:       %{url}/raw/%{commit_long}/boot/start4db.elf
 Source18:       %{url}/raw/%{commit_long}/boot/start4x.elf
 
-ExclusiveArch: %{arm}
+ExclusiveArch: %{arm} aarch64
 
 
 %description
