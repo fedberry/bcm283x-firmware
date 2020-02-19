@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20191106
-%global commit_long     b79618b5db4e4e7c02f9ad9d3ada51713825313e
+%global snap_date       20200218
+%global commit_long     f4b58692fef0b9c16bd4564edb980fff73a758b3
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -61,6 +61,10 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Tue Feb 18 2020 Vaughan <devel at agrez dot net> - 20200218-1.f4b5869
+- Add aarch64 to ExclusiveArch
+- Sync to latest git commit: f4b58692fef0b9c16bd4564edb980fff73a758b3
+
 * Wed Nov 06 2019 Vaughan <devel at agrez dot net> - 20191106-1.b79618b
 - Sync to latest git commit: b79618b5db4e4e7c02f9ad9d3ada51713825313e
 
