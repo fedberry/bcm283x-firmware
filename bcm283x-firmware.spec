@@ -3,8 +3,8 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20200901
-%global commit_long     a34f263ce6a9e35f3c1d62f6195f9f45f4f547e7
+%global snap_date       20201223
+%global commit_long     0fb9a0dce50c3f4683254f57c3a5c20289a4de8a
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 
 Name:          bcm283x-firmware
@@ -61,6 +61,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Wed Dec 23 2020 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20201223-1.0fb9a0d
+- Sync to latest git commit: 0fb9a0dce50c3f4683254f57c3a5c20289a4de8a
+
 * Wed Sep 02 2020 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20200901-1.a34f263
 - Sync to latest git commit: a34f263ce6a9e35f3c1d62f6195f9f45f4f547e7
 
