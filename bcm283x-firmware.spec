@@ -3,9 +3,10 @@
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20201223
-%global commit_long     0fb9a0dce50c3f4683254f57c3a5c20289a4de8a
+%global snap_date       20210310
+%global commit_long     0591568b29a724de406aa737fc8e13f68c423f3f
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
+%global fetch_url       https://raw.githubusercontent.com/raspberrypi/firmware
 
 Name:          bcm283x-firmware
 Version:       %{snap_date}
@@ -13,27 +14,27 @@ Release:       1.%{commit_short}%{?dist}
 Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
-URL:           https://github.com/raspberrypi/firmware
-Source0:       %{url}/raw/%{commit_long}/boot/bootcode.bin
-Source1:       %{url}/raw/%{commit_long}/boot/fixup.dat
-Source2:       %{url}/raw/%{commit_long}/boot/fixup_cd.dat
-Source3:       %{url}/raw/%{commit_long}/boot/fixup_db.dat
-Source4:       %{url}/raw/%{commit_long}/boot/fixup_x.dat
-Source5:       %{url}/raw/%{commit_long}/boot/start.elf
-Source6:       %{url}/raw/%{commit_long}/boot/start_cd.elf
-Source7:       %{url}/raw/%{commit_long}/boot/start_db.elf
-Source8:       %{url}/raw/%{commit_long}/boot/start_x.elf
-Source9:       %{url}/raw/%{commit_long}/boot/LICENCE.broadcom
-Source10:      %{url}/raw/%{commit_long}/boot/COPYING.linux
+URL:           https://github.com/raspberrypi/firmware/
+Source0:       %{fetch_url}/%{commit_long}/boot/bootcode.bin
+Source1:       %{fetch_url}/%{commit_long}/boot/fixup.dat
+Source2:       %{fetch_url}/%{commit_long}/boot/fixup_cd.dat
+Source3:       %{fetch_url}/%{commit_long}/boot/fixup_db.dat
+Source4:       %{fetch_url}/%{commit_long}/boot/fixup_x.dat
+Source5:       %{fetch_url}/%{commit_long}/boot/start.elf
+Source6:       %{fetch_url}/%{commit_long}/boot/start_cd.elf
+Source7:       %{fetch_url}/%{commit_long}/boot/start_db.elf
+Source8:       %{fetch_url}/%{commit_long}/boot/start_x.elf
+Source9:       %{fetch_url}/%{commit_long}/boot/LICENCE.broadcom
+Source10:      %{fetch_url}/%{commit_long}/boot/COPYING.linux
 # RPi4 firmware
-Source11:       %{url}/raw/%{commit_long}/boot/fixup4.dat
-Source12:       %{url}/raw/%{commit_long}/boot/fixup4cd.dat
-Source13:       %{url}/raw/%{commit_long}/boot/fixup4db.dat
-Source14:       %{url}/raw/%{commit_long}/boot/fixup4x.dat
-Source15:       %{url}/raw/%{commit_long}/boot/start4.elf
-Source16:       %{url}/raw/%{commit_long}/boot/start4cd.elf
-Source17:       %{url}/raw/%{commit_long}/boot/start4db.elf
-Source18:       %{url}/raw/%{commit_long}/boot/start4x.elf
+Source11:      %{fetch_url}/%{commit_long}/boot/fixup4.dat
+Source12:      %{fetch_url}/%{commit_long}/boot/fixup4cd.dat
+Source13:      %{fetch_url}/%{commit_long}/boot/fixup4db.dat
+Source14:      %{fetch_url}/%{commit_long}/boot/fixup4x.dat
+Source15:      %{fetch_url}/%{commit_long}/boot/start4.elf
+Source16:      %{fetch_url}/%{commit_long}/boot/start4cd.elf
+Source17:      %{fetch_url}/%{commit_long}/boot/start4db.elf
+Source18:      %{fetch_url}/%{commit_long}/boot/start4x.elf
 
 ExclusiveArch: %{arm} aarch64
 
@@ -61,6 +62,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Fri Mar 12 2021 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20210310-1.0591568
+- Sync to latest git commit: 0591568b29a724de406aa737fc8e13f68c423f3f
+
 * Wed Dec 23 2020 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20201223-1.0fb9a0d
 - Sync to latest git commit: 0fb9a0dce50c3f4683254f57c3a5c20289a4de8a
 
